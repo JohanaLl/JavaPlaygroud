@@ -4,9 +4,12 @@ public class SingleObject {
 
 	//instancia
 	private static SingleObject instance;
+	private static int count = 0;
 	
 	//constructor privado para que la clase no pueda ser instanciada
-	private SingleObject() {}
+	private SingleObject() {
+		count++;
+	}
 	
 	//Obtener la instancia unica disponible
 	public static SingleObject getInstance() {
@@ -19,4 +22,13 @@ public class SingleObject {
 	public void showMessage() {
 		System.out.println("Hello World!");
 	}
+	
+    protected void finalize() throws Throwable {
+        count--;
+        super.finalize();
+    }
+    
+    public static int getCount() {
+        return count;
+    }
 }
