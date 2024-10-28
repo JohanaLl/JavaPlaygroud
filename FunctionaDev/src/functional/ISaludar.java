@@ -9,5 +9,5 @@ public interface ISaludar {
 	/**
 	 * Metodo abstracto
 	 */
-	void Saludar();
+	void Saludar(String user);
 }
