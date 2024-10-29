@@ -1,5 +1,7 @@
 package functional;
 
+import java.util.Arrays;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -30,5 +32,19 @@ public class Main {
 		
 		result = suma.suma(100, 200);
 		System.out.println(result);
+		
+		//Crear una función anónima que nos permita calcular el promedio de un arreglo de números enteros.
+		int[] nums = {1, 5, 8, 4, 6};
+		IAverage average = arr -> {
+			double sum = 0;
+			
+			for (int num : arr) {
+				sum += num;
+			}
+			return sum / nums.length;
+		};
+		
+		double ave = average.average(nums);
+		System.out.println("Promedio " + ave);
 	}
 }
