@@ -46,5 +46,19 @@ public class Main {
 		
 		double ave = average.average(nums);
 		System.out.println("Promedio " + ave);
+		
+		//Crear una función anónima que calcule el factorial dado un número entero.
+		IFactorial factorial = num -> {
+			int fact = 1, numSec = 0;
+			for (int i = 0; i < num; i++) {
+				numSec = num - i;
+				fact = fact * numSec;
+			} 
+			
+			return fact;
+		};
+		
+		int numFacto = factorial.calcularFactorial(7);
+		System.out.println("Factorial " + numFacto);
 	}
 }
