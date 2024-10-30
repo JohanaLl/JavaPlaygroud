@@ -51,8 +51,14 @@ public class Main {
 		IFactorial factorial = num -> {
 			int fact = 1, numSec = 0;
 			for (int i = 0; i < num; i++) {
-				numSec = num - i;
-				fact = fact * numSec;
+				if (num == 0) {
+					fact = 0;
+				} else if (num < 0) {
+					fact = 0;
+				} else {
+					numSec = num - i;
+					fact = fact * numSec;
+				}
 			} 
 			
 			return fact;
@@ -60,5 +66,10 @@ public class Main {
 		
 		int numFacto = factorial.calcularFactorial(7);
 		System.out.println("Factorial " + numFacto);
+		
+		//Crear una función anónima que permita conocer si un número es par.
+		IEven isEven = num -> num % 2 == 0 ? "Es par" : "Es impar";
+		String EvenOdd = isEven.isEven(18);
+		System.out.println(EvenOdd);
 	}
 }
