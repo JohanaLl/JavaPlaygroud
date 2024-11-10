@@ -214,5 +214,37 @@ public class Main {
 				.sorted( Comparator.reverseOrder() )
 				.toList();
 		System.out.println(result_s); //[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+		
+		//Ordenar elementos de una colección a apartir de atributos de un objeto
+		
+		//Ordenar por copias
+//		List<Book> books = List.of(); //las listas creadas con List.of() son inmutables en Java
+		List<Book> books = new ArrayList<>(); //ArrayList<>() mutable
+		
+		books.add(new Book("El señor de los anillos", 150));
+		books.add(new Book("Don Quijote de la Mancha", 500));
+		books.add(new Book("Historia de dos ciudades", 200));
+		books.add(new Book("El hobbit", 100));
+		books.add(new Book("El principito", 140));
+		
+		books.stream()
+			.sorted( Comparator.comparing(book -> book.getCopies()) )
+			.forEach(book -> System.out.println(book.getTitle()));
+		
+		System.out.println("************************************");
+		
+		Comparator<Book> compCopies = Comparator.comparing(book -> book.getCopies());
+		books.stream()
+		.sorted( compCopies.reversed() )
+		.forEach(book -> System.out.println(book.getTitle()));
+		
+		//Mostrar en consola los 3 ultimos más vendidos
+		System.out.println("****************MAS VENDIDOS********************");
+		books.stream()
+		.sorted( compCopies.reversed() )
+		.limit(3) //.limit() Limitar los elementos mostrados
+		.forEach(book -> System.out.println(book.getTitle()));
+		
+		
 	}
 }
