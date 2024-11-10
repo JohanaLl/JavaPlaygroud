@@ -197,5 +197,9 @@ public class Main {
 		String string = Stream.of("Java", "C", "Python", "Ruby")
 			.reduce( "", (acumulador, lenguaje) -> acumulador.isEmpty() ? lenguaje : acumulador + " | " + lenguaje);
 		System.out.println(string);
+		
+		//.distinct() Elementos unicos de una colección
+		List<String> names_w = List.of("Codi 1", "Codi 2", "Codi 1", "Codi 3", "Codi 4");
+		names_w.stream().distinct().forEach( elemento -> System.out.println(elemento));
 	}
 }
