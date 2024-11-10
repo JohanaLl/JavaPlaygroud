@@ -69,6 +69,17 @@ public class Main {
 		List<Integer> result = numeros.stream()
 									.map(num -> num * num)
 									.toList();
+		//.forEach() permite realizar acciones sobre cada elmento de la colección
+		numeros.stream()
+				.map(num -> num * num)
+				.forEach(num -> System.out.println(num));
+		
+		numeros.stream()
+				.forEach(num -> {
+					int resultado = num * num;
+					System.out.println(resultado);
+				});
+
 		System.out.println(numeros);
 		System.out.println(result);
 		
