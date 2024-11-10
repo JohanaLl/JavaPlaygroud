@@ -62,5 +62,13 @@ public class Main {
 									.collect(Collectors.toList());
 		System.out.println(newUsers);
 		
+		//Obtener el cuadrado de todos los numeros de la lista
+		//.map() - modificar el valor de los elementos de una colección
+		List<Integer> numeros = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+		numeros = numeros.stream()
+									.map(num -> num * num)
+									.toList();
+		System.out.println(numeros);
+//		System.out.println(result);
 	}
 }
