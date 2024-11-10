@@ -40,5 +40,12 @@ public class Main {
 		
 		Stream<User> stream = users.stream();
 		System.out.println(stream.filter(user -> user.getEdad() > 18).toList());
+		
+		//Streams con colleciones
+		//Colección
+		
+		//Stream
+		//Arreglo
+		//Secuencia
 	}
 }
