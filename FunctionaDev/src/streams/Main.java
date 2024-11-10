@@ -65,10 +65,41 @@ public class Main {
 		//Obtener el cuadrado de todos los numeros de la lista
 		//.map() - modificar el valor de los elementos de una colección
 		List<Integer> numeros = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-		numeros = numeros.stream()
+		List<Integer> result = numeros.stream()
 									.map(num -> num * num)
 									.toList();
 		System.out.println(numeros);
-//		System.out.println(result);
+		System.out.println(result);
+		
+		//Generar una lista de números enteros apartir de la lista ya existente.
+		List<String> strings = List.of("1", "2", "3", "4");
+		
+		List<Integer> numbersI = strings.stream()
+								.map(num -> Integer.parseInt(num))
+								.toList();
+		System.out.println(numbersI);
+		
+		//Imprimir en consola los strings con todas sus letras en mayúsculas.
+		List<String> strings_w = List.of("a", "b", "codi");
+		strings_w = strings_w.stream()
+					.map(letter -> letter.toUpperCase())
+					.collect( Collectors.toList() );
+		System.out.println(strings_w);
+		
+		//Generar una lista de valores booleanos los cuales hagan referencia a las 
+		//calificaciones de los alumnos. La calificación minima aprovatoria es 6.
+		List<Integer> calificaciones = List.of(9, 8, 9, 5, 10, 7);
+		List<Boolean> booleans = calificaciones.stream()
+									.map(cal -> cal > 5)
+									.toList();
+		System.out.println(booleans);
+		
+		/*
+		 * En ocasiones tendremos la necesidad de transformar objetos regulares a streams 
+		 * primitivos o viceversa. En esos casos podemos hacer uso de métodos tales cómo :
+		 * mapToInt
+		 * mapToLong
+		 * mapToDouble
+		 */
 	}
 }
