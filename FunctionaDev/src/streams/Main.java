@@ -133,5 +133,26 @@ public class Main {
 			  .flatMap(element -> element.stream()) //[Codi 1, Codi 2, Codi 3, Codi 4, Codi 5, Codi 6]
 			  .toList();
 		System.out.println(results);
+		
+		User userdefault = new User("Sin nombre", 30);
+		
+		//.findAny(), .findFirst() Buscar y obtener elementos en la colección
+		User user = users.stream()
+			.filter(usu -> usu.getEdad() == 25)
+			.findAny()
+			.get();
+		System.out.println(user.getName());
+		
+		user = users.stream()
+				.filter(usu -> usu.getEdad() == 25)
+				.findFirst()
+				.get(); //retorna un error en caso que no devuelva nada
+		System.out.println(user.getName());
+		
+		user = users.stream()
+				.filter(usu -> usu.getEdad() == 30)
+				.findFirst()
+				.orElse(userdefault);
+		System.out.println(user.getName());
 	}
 }
