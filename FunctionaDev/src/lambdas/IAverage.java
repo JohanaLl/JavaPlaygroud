@@ -1,4 +1,4 @@
-package functional;
+package lambdas;
 
 @FunctionalInterface
 public interface IAverage {

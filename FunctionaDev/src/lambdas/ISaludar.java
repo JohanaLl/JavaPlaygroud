@@ -1,4 +1,4 @@
-package functional;
+package lambdas;
 
 /**
  * Interfaz abstracta, nació en java 8

@@ -1,10 +1,10 @@
-package functional;
-
-import java.util.Arrays;
+package lambdas;
 
 public class Main {
 
 	public static void main(String[] args) {
+		
+		int[] nums = {1, 5, 8, 4, 6, 20};
 		
 		ISaludar saludar = user -> System.out.println("Hola Mundo " + user); 
 		saludar.Saludar("Codi");
@@ -26,7 +26,7 @@ public class Main {
 		suma = (val1, val2) -> {
 			
 			int sum = val1 + val2;
-			System.out.println("El rsultado de la expreseión es " + sum);
+			System.out.println("El resultado de la expreseión es " + sum);
 			return sum;
 		};
 		
@@ -34,7 +34,6 @@ public class Main {
 		System.out.println(result);
 		
 		//Crear una función anónima que nos permita calcular el promedio de un arreglo de números enteros.
-		int[] nums = {1, 5, 8, 4, 6};
 		IAverage average = arr -> {
 			double sum = 0;
 			
@@ -71,5 +70,24 @@ public class Main {
 		IEven isEven = num -> num % 2 == 0 ? "Es par" : "Es impar";
 		String EvenOdd = isEven.isEven(18);
 		System.out.println(EvenOdd);
+		
+		//Dado un arreglo de números enteros, crear una función anónima que retorne el número mayor.
+		IGrater grater = arr -> {
+			int great = arr[0];
+			for (int i : arr) {
+				if (i > great) {
+					great = i;
+				}
+			}
+			
+			return great;
+		};
+		
+		System.out.println("El numero mayor es " + grater.grater(nums));
+		
+//		Crear una función anónima que reciba como parámetro 3 numeros enteros. La función retorna el número mayor.
+		IGreatNum great = (a, b, c) -> a > b ? (a > c ? a : c) : (b > c ? b : c);
+		int greatNum = great.greaterNum(50, 33, 22);
+		System.out.println("El número mayor es: " + greatNum);
 	}
 }
