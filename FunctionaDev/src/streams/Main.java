@@ -235,15 +235,15 @@ public class Main {
 		
 		Comparator<Book> compCopies = Comparator.comparing(book -> book.getCopies());
 		books.stream()
-		.sorted( compCopies.reversed() )
-		.forEach(book -> System.out.println(book.getTitle()));
+			.sorted( compCopies.reversed() )
+			.forEach(book -> System.out.println(book.getTitle()));
 		
 		//Mostrar en consola los 3 ultimos más vendidos
 		System.out.println("****************MAS VENDIDOS********************");
 		books.stream()
-		.sorted( compCopies.reversed() )
-		.limit(3) //.limit() Limitar los elementos mostrados
-		.forEach(book -> System.out.println(book.getTitle()));
+			.sorted( compCopies.reversed() )
+			.limit(3) //.limit() Limitar los elementos mostrados
+			.forEach(book -> System.out.println(book.getTitle()));
 		
 		System.out.println("****************TITULOS********************");
 		//Ordenar por el título del libro
@@ -258,5 +258,14 @@ public class Main {
 			.sorted( compTitle.reversed() )
 			.limit(3)
 			.forEach( book -> System.out.println(book.getTitle()) );
+
+		System.out.println("****************SEGUNDO Y TERCERO MAS VENDIDO********************");
+		//Obtener el titulo del segundo y tercer libro más vendido
+		// .skip(int) saltos entre elementos de una colección
+		books.stream()
+			.sorted( compCopies.reversed() )
+			.limit(3)
+			.skip(1)
+			.forEach(book -> System.out.println(book.getTitle()));
 	}
 }
