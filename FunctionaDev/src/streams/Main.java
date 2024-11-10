@@ -154,5 +154,37 @@ public class Main {
 				.findFirst()
 				.orElse(userdefault);
 		System.out.println(user.getName());
+		
+		//.count() Verificar cuantos elementos tiene la abstracción
+		Long cantidad = numeros.stream()
+							.filter(num -> num > 6)
+							.count();
+		System.out.println(cantidad);
+		
+		//.sum() sumar los elementos de la colección
+		int sum = numeros.stream()
+			.mapToInt(n -> n).sum();
+		System.out.println(sum);
+		
+		//.average() obtener el promedio de una coleccipon
+		double promedio = numeros.stream()
+				.mapToInt(n -> n)
+				.average()
+				.orElse(0);
+		System.out.println(promedio);
+		
+		//.min() obtener el minimo de la collección
+		int minimo = numeros.stream()
+						.mapToInt(n -> n)
+						.min()
+						.getAsInt();
+		System.out.println(minimo);
+		
+		//.max() obtener el maximo de la collección
+		int maximo = numeros.stream()
+						.mapToInt(n -> n)
+						.max()
+						.getAsInt();
+		System.out.println(maximo);
 	}
 }
