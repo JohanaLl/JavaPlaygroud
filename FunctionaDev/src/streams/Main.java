@@ -105,6 +105,16 @@ public class Main {
 									.map(cal -> cal > 5)
 									.toList();
 		System.out.println(booleans);
+		boolean reprobo = calificaciones.stream()
+								.filter(cal -> cal < 6)
+								.count() > 0;
+		System.out.println(reprobo);
+		
+		//.anyMatch podemos obtener el mismo resultado de la anterior expresion
+		//Permite conocer si un elemento se encuentra dentro de una collección
+		boolean result_any = calificaciones.stream()
+								.anyMatch(cal -> cal < 6);
+		System.out.println(result_any);
 		
 		/*
 		 * En ocasiones tendremos la necesidad de transformar objetos regulares a streams 
