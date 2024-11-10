@@ -245,6 +245,18 @@ public class Main {
 		.limit(3) //.limit() Limitar los elementos mostrados
 		.forEach(book -> System.out.println(book.getTitle()));
 		
+		System.out.println("****************TITULOS********************");
+		//Ordenar por el título del libro
+		Comparator<Book> compTitle;
+		//Dependiendo el estado se obtiene un comportamiento y valor diferente
+		if (books.stream().count() > 3) 
+			compTitle = Comparator.comparing(book -> book.getCopies());
+		else
+			compTitle = Comparator.comparing(book -> book.getTitle());
 		
+		books.stream()
+			.sorted( compTitle.reversed() )
+			.limit(3)
+			.forEach( book -> System.out.println(book.getTitle()) );
 	}
 }
