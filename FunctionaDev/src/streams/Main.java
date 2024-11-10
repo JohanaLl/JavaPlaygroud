@@ -2,6 +2,7 @@ package streams;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -201,5 +202,17 @@ public class Main {
 		//.distinct() Elementos unicos de una colección
 		List<String> names_w = List.of("Codi 1", "Codi 2", "Codi 1", "Codi 3", "Codi 4");
 		names_w.stream().distinct().forEach( elemento -> System.out.println(elemento));
+		
+		//Ordernar los numeros de una lista
+		List<Integer> numbers_s = List.of(1, 4, 6, 2, 8, 3, 10, 7, 9, 5);
+		List<Integer> result_s = numbers_s.stream()
+									.sorted()
+									.toList();
+		System.out.println(result_s); //[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+		
+		result_s = numbers_s.stream()
+				.sorted( Comparator.reverseOrder() )
+				.toList();
+		System.out.println(result_s); //[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 	}
 }
