@@ -52,7 +52,7 @@ public class Main {
 		Stream<User> filter = stream_w.filter(user -> user.getEdad() > 8);
 		
 		//Arreglo
-		int[] numbers = {1, 2, 3, 4};
+		int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 		Stream numbersS = Stream.of(numbers);
 		
 		//Secuencia
@@ -186,5 +186,16 @@ public class Main {
 						.max()
 						.getAsInt();
 		System.out.println(maximo);
+		
+		//.reduce() reducir los elementos de una colección
+		//Permite retornar un solo resultado a partir de los elementos de una collección
+		int reduce = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+			.reduce( 0, ( acumulador, elemento ) -> acumulador + elemento);
+		System.out.println("Suma all " + reduce);
+		//.reduce(valorInicialAcumulador, Expreseón lambda ())
+		
+		String string = Stream.of("Java", "C", "Python", "Ruby")
+			.reduce( "", (acumulador, lenguaje) -> acumulador.isEmpty() ? lenguaje : acumulador + " | " + lenguaje);
+		System.out.println(string);
 	}
 }
