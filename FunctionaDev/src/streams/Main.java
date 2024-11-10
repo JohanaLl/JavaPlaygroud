@@ -1,5 +1,6 @@
 package streams;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -41,11 +42,25 @@ public class Main {
 		Stream<User> stream = users.stream();
 		System.out.println(stream.filter(user -> user.getEdad() > 18).toList());
 		
-		//Streams con colleciones
+		//Generar nuevos Streams a partir de colleciones
 		//Colección
+		List<User> users_w = new ArrayList<>();
+		Stream<User> stream_w = users_w.stream(); //Abstraccion
 		
 		//Stream
+		Stream<User> filter = stream_w.filter(user -> user.getEdad() > 8);
+		
 		//Arreglo
+		int[] numbers = {1, 2, 3, 4};
+		Stream numbersS = Stream.of(numbers);
+		
 		//Secuencia
+		Stream names = Stream.of("Codi 1", "Codi 2", "Codi3");
+		
+		List<User> newUsers = users.stream()
+									.filter(user -> user.getEdad() > 18)
+									.collect(Collectors.toList());
+		System.out.println(newUsers);
+		
 	}
 }

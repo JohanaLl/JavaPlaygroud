@@ -40,6 +40,6 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", edad=" + edad + "]";
+		return "User: " + name + " - " + edad;
 	}
 }
