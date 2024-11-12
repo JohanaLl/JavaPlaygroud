@@ -227,11 +227,12 @@ public class Main {
 		books.add(new Book("El hobbit", 100));
 		books.add(new Book("El principito", 140));
 		
+		System.out.println("**************ORDENER ASC POR COPIAS**********************");
 		books.stream()
 			.sorted( Comparator.comparing(book -> book.getCopies()) )
 			.forEach(book -> System.out.println(book.getTitle()));
 		
-		System.out.println("************************************");
+		System.out.println("**************ORDENER DESC POR COPIAS**********************");
 		
 		Comparator<Book> compCopies = Comparator.comparing(book -> book.getCopies());
 		books.stream()
