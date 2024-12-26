@@ -2,7 +2,7 @@ package singleton;
 
 public class SingleObject {
 
-	//instancia
+	//Instancia única de la clase (Singleton)
 	private static SingleObject instance;
 	
 	//constructor privado para que la clase no pueda ser instanciada
@@ -11,7 +11,12 @@ public class SingleObject {
 	//Obtener la instancia unica disponible
 	public static SingleObject getInstance() {
 		if (instance == null) {
-			instance = new SingleObject();
+			//Crear bloqueo para que no se creen multiples instancias en entornos multithread
+			synchronized (SingleObject.class) {
+				// Segunda comprobación dentro del bloqueo
+				if (instance == null) 
+					instance = new SingleObject();
+			}
 		}
 		return instance;
 	}
